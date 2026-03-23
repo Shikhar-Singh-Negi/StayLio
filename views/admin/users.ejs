@@ -1,0 +1,75 @@
+<% layout("/layouts/admin") %>
+<% const active = 'users' %>
+
+<div class="row align-items-center mb-4">
+    <div class="col">
+        <h1 class="h3 mb-0 text-gray-800">Users Management</h1>
+        <p class="text-muted small">Manage roles and permissions of your platform users.</p>
+    </div>
+</div>
+
+<!-- Admin Users Section -->
+<div class="row mb-4 mt-5">
+    <div class="col">
+        <h2 class="h5 mb-0 text-success"><i class="fas fa-user-shield me-2"></i>Administrators</h2>
+        <p class="text-muted small">The following users have full control over the admin dashboard.</p>
+    </div>
+</div>
+<div class="admin-table-container shadow-sm border-0 mt-2">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Provider</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let adminUsers = users.filter(u => u.role === 'admin'); %>
+                <% if (adminUsers.length === 0) { %>
+                    <tr><td colspan="5" class="text-center text-muted py-4">No administrators found.</td></tr>
+                <% } else { %>
+                    <% for(let user of adminUsers) { %>
+                        <%- include("../includes/user_row.ejs", { user }) %>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Normal Users Section -->
+<div class="row mb-4 mt-5">
+    <div class="col">
+        <h2 class="h5 mb-0 text-primary"><i class="fas fa-users me-2"></i>Registered Users</h2>
+        <p class="text-muted small">Standard users with platform access.</p>
+    </div>
+</div>
+<div class="admin-table-container shadow-sm border-0 mt-2">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Provider</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let normalUsers = users.filter(u => u.role === 'user' || !u.role); %>
+                <% if (normalUsers.length === 0) { %>
+                    <tr><td colspan="5" class="text-center text-muted py-4">No normal users found.</td></tr>
+                <% } else { %>
+                    <% for(let user of normalUsers) { %>
+                        <%- include("../includes/user_row.ejs", { user }) %>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>

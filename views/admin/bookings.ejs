@@ -1,0 +1,55 @@
+<% layout("/layouts/admin") %>
+<% const active = 'bookings' %>
+
+<div class="row align-items-center mb-4">
+    <div class="col">
+        <h1 class="h3 mb-0 text-gray-800">Bookings Management</h1>
+        <p class="text-muted small">Monitor all platform bookings and update reservation statuses.</p>
+    </div>
+</div>
+
+<div class="admin-table-container">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Booking ID</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Listing</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let booking of bookings) { %>
+                    <tr>
+                        <td><small class="text-muted">#<%= booking._id.toString().substring(0, 8).toUpperCase() %></small></td>
+                        <td><%= booking.user ? booking.user.username : 'Deleted User' %></td>
+                        <td><%= booking.listing ? booking.listing.title : 'Deleted Listing' %></td>
+                        <td class="fw-bold">₹<%= booking.totalPrice.toLocaleString("en-IN") %></td>
+                        <td>
+                            <form action="/admin/bookings/<%= booking._id %>/status?_method=PATCH" method="POST" class="d-inline">
+                                <select name="status" class="form-select form-select-sm d-inline-block w-auto" onchange="this.form.submit()">
+                                    <option value="Pending" <%= booking.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                                    <option value="Confirmed" <%= booking.status === 'Confirmed' ? 'selected' : '' %>>Confirmed</option>
+                                    <option value="Cancelled" <%= booking.status === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td>
+                            <div class="d-flex gap-2 text-muted small">
+                                <span><i class="far fa-clock"></i> <%= booking.createdAt.toDateString() %></span>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+                <% if (bookings.length === 0) { %>
+                    <tr>
+                        <td colspan="6" class="text-center p-4">No bookings found yet.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>

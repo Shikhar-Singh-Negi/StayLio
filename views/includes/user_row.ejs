@@ -1,0 +1,35 @@
+<tr>
+    <td>
+        <div class="d-flex align-items-center gap-2">
+            <div class="avatar bg-light border p-2 rounded-circle" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <span><%= user.username %></span>
+        </div>
+    </td>
+    <td><%= user.email %></td>
+    <td>
+        <form action="/admin/users/<%= user._id %>/role?_method=PATCH" method="POST" class="d-inline">
+            <select name="role" class="form-select form-select-sm d-inline-block w-auto" onchange="this.form.submit()">
+                <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>User</option>
+                <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+            </select>
+        </form>
+    </td>
+    <td>
+        <% if(user.provider) { %>
+            <span class="badge bg-info text-capitalize"><%= user.provider %></span>
+        <% } else { %>
+            <span class="badge bg-secondary">Local</span>
+        <% } %>
+    </td>
+    <td>
+        <div class="d-flex gap-2">
+            <form action="/admin/users/<%= user._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?')">
+                <button class="btn btn-sm btn-outline-danger">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </form>
+        </div>
+    </td>
+</tr>

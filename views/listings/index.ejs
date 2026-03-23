@@ -1,0 +1,423 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+  .btn-check:checked + .btn-outline-dark {
+    background-color: #222 !important;
+    color: white !important;
+  }
+  .btn-check:checked + .property-type {
+    border: 2px solid black !important;
+    background-color: #eee !important;
+  }
+</style>
+
+  <div class="filters-main">
+    <div id="filters">
+      <div class="filter-width">
+        <a href="/listings">
+          <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Beachfront">
+          <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beachfront</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Farms">
+          <div class="filter">
+            <div><i class="fa-solid fa-tractor"></i></div>
+            <p>Farms</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Omg">
+          <div class="filter">
+            <div><i class="fa-brands fa-space-awesome"></i></div>
+            <p>OMG</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Lake">
+          <div class="filter">
+            <div><i class="fa-solid fa-water"></i></div>
+            <p>Lake</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Design">
+          <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Design</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Amazing Pools">
+          <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Pools</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Amazing Views">
+          <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>City</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Rooms">
+          <div class="filter">
+            <div><i class="fa-solid fa-person-booth"></i></div>
+            <p>Rooms</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Lakefront">
+          <div class="filter">
+            <div><i class="fa-brands fa-cloudflare"></i></div>
+            <p>Lakefront</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Tiny Homes">
+          <div class="filter">
+            <div><i class="fa-solid fa-house-user"></i></div>
+            <p>Tiny</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Countryside">
+          <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Countryside</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Cabins">
+          <div class="filter">
+            <i class="fa-solid fa-house-chimney-window"></i>
+            <p>Cabins</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Treehouse">
+          <div class="filter">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p>Treehouse</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Tropical">
+          <div class="filter Tropical">
+            <div><i class="fa-solid fa-house-fire"></i></div>
+            <p>Tropical</p>
+          </div>
+        </a>
+        <a href="/listings/filter/National Parks">
+          <div class="filter National-parks">
+            <div><i class="fa-solid fa-democrat"></i></div>
+            <p>Parks</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Castles">
+          <div class="filter Castles">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Camping">
+          <div class="filter Camping">
+            <div><i class="fa-solid fa-tents"></i></div>
+            <p>Camping</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Top Of The World">
+          <div class="filter Top-of-the-world">
+            <div><i class="fa-solid fa-square-person-confined"></i></div>
+            <p>World</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Luxe">
+          <div class="filter Luxe">
+            <div><i class="fa-solid fa-building-user"></i></div>
+            <p>&nbsp;Luxe&nbsp;</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Iconic Cities">
+          <div class="filter Iconic-cities">
+            <div><i class="fa-solid fa-tree-city"></i></div>
+            <p>Iconic Cities</p>
+          </div>
+        </a>
+        <a href="/listings/filter/Earth Homes">
+          <div class="filter Earth-homes">
+            <div><i class="fa-solid fa-building-shield"></i></div>
+            <p>Earth Homes</p>
+          </div>
+        </a>
+      </div>
+      <div>&nbsp;&nbsp;&nbsp;</div>
+      <div class="filter-box">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="ri-equalizer-line">&nbsp;Filters</i>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <form action="/listings/filter" method="GET" class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><b>Filters</b></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                <h5>Type of place</h5>
+                <p>Search rooms, entire homes or any type of place.</p>
+                <span id="anytype-btn"><button>Any type</button><button>Room</button><button>Entire home</button></span>
+                <hr>
+                <h5>Price range</h5>
+                <p>Nightly prices before fees and taxes</p>
+
+                <div class="price-slider-wrapper mb-3">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>₹<span id="minPriceDisplay">500</span></span>
+                    <span>₹<span id="maxPriceDisplay">50000</span>+</span>
+                  </div>
+                  <div class="d-flex gap-2 align-items-center">
+                    <input type="range" class="form-range" id="minPriceSlider"
+                      min="0" max="100000" step="500" value="500"
+                      oninput="document.getElementById('minPriceDisplay').textContent = this.value; document.getElementById('minPriceInput').value = this.value;">
+                  </div>
+                  <div class="d-flex gap-2 align-items-center mt-2">
+                    <input type="range" class="form-range" id="maxPriceSlider"
+                      min="0" max="100000" step="500" value="50000"
+                      oninput="document.getElementById('maxPriceDisplay').textContent = this.value; document.getElementById('maxPriceInput').value = this.value;">
+                  </div>
+                  <div class="d-flex justify-content-between mt-2 gap-2">
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text">₹ Min</span>
+                      <input type="number" class="form-control" id="minPriceInput" name="minPrice"
+                        value="500" min="0" max="100000"
+                        oninput="document.getElementById('minPriceSlider').value = this.value; document.getElementById('minPriceDisplay').textContent = this.value">
+                    </div>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text">₹ Max</span>
+                      <input type="number" class="form-control" id="maxPriceInput" name="maxPrice"
+                        value="50000" min="0" max="100000"
+                        oninput="document.getElementById('maxPriceSlider').value = this.value; document.getElementById('maxPriceDisplay').textContent = this.value">
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <h5>Rooms and beds</h5>
+                <p>Bedrooms</p>
+                <div class="bedrooms mb-3">
+                  <input type="radio" class="btn-check" name="bedrooms" id="bedAny" value="Any" checked>
+                  <label class="btn btn-outline-dark" for="bedAny">Any</label>
+                  <% [1,2,3,4,5].forEach(num => { %>
+                    <input type="radio" class="btn-check" name="bedrooms" id="bed<%= num %>" value="<%= num %>">
+                    <label class="btn btn-outline-dark" for="bed<%= num %>"><%= num %></label>
+                  <% }) %>
+                  <input type="radio" class="btn-check" name="bedrooms" id="bed6" value="6+">
+                  <label class="btn btn-outline-dark" for="bed6">6+</label>
+                </div>
+
+                <p>Beds</p>
+                <div class="bedrooms mb-3">
+                  <input type="radio" class="btn-check" name="beds" id="bedsAny" value="Any" checked>
+                  <label class="btn btn-outline-dark" for="bedsAny">Any</label>
+                  <% [1,2,3,4,5].forEach(num => { %>
+                    <input type="radio" class="btn-check" name="beds" id="beds<%= num %>" value="<%= num %>">
+                    <label class="btn btn-outline-dark" for="beds<%= num %>"><%= num %></label>
+                  <% }) %>
+                  <input type="radio" class="btn-check" name="beds" id="beds6" value="6+">
+                  <label class="btn btn-outline-dark" for="beds6">6+</label>
+                </div>
+
+                <p>Bathrooms</p>
+                <div class="bedrooms mb-3">
+                  <input type="radio" class="btn-check" name="bathrooms" id="bathAny" value="Any" checked>
+                  <label class="btn btn-outline-dark" for="bathAny">Any</label>
+                  <% [1,2,3,4,5].forEach(num => { %>
+                    <input type="radio" class="btn-check" name="bathrooms" id="bath<%= num %>" value="<%= num %>">
+                    <label class="btn btn-outline-dark" for="bath<%= num %>"><%= num %></label>
+                  <% }) %>
+                  <input type="radio" class="btn-check" name="bathrooms" id="bath6" value="6+">
+                  <label class="btn btn-outline-dark" for="bath6">6+</label>
+                </div>
+
+                <hr>
+                <h5><strong>Top-tier stays</strong></h5>
+                <div id="top-tier">
+                  <i class="fa-solid fa-award"></i>
+                  <p><b>Guest favourites</b></p>
+                  <p id="top-tier-p">The most loved homes on StayLio, according to guests</p>
+                </div>
+                <hr>
+                <h5><strong>Property type</strong></h5>
+                <div class="property d-flex flex-wrap justify-content-center">
+                  <input type="radio" class="btn-check" name="propertyType" id="propAny" value="Any" checked>
+                  <label class="btn btn-outline-dark m-2" for="propAny">Any</label>
+
+                  <input type="radio" class="btn-check" name="propertyType" id="propHouse" value="House">
+                  <label class="property-type m-2" for="propHouse">
+                    <i class="fa-solid fa-house"></i>
+                    <p>House</p>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="propertyType" id="propFlat" value="Flat">
+                  <label class="property-type m-2" for="propFlat">
+                    <i class="fa-solid fa-building-flag"></i>
+                    <p>Flat</p>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="propertyType" id="propGuesthouse" value="Guests house">
+                  <label class="property-type m-2" for="propGuesthouse">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                    <p>Guests house</p>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="propertyType" id="propHotel" value="Hotel">
+                  <label class="property-type m-2" for="propHotel">
+                    <i class="fa-solid fa-building"></i>
+                    <p>Hotel</p>
+                  </label>
+                </div>
+
+                <hr>
+                <h5><strong>Amenities</strong></h5>
+                <div class="amentities">
+                  <div class="amentities-item">
+                    <p><input type="checkbox" name="amenities" value="Wifi">&nbsp;&nbsp;Wifi</p>
+                    <p><input type="checkbox" name="amenities" value="Kitchen">&nbsp;&nbsp;Kitchen</p>
+                    <p><input type="checkbox" name="amenities" value="Air conditioning">&nbsp;&nbsp;AC</p>
+                    <p><input type="checkbox" name="amenities" value="Free Parking">&nbsp;&nbsp;Parking</p>
+                  </div>
+                </div>
+                <hr>
+                <p><b>Locations</b></p>
+                <div class="amentities">
+                  <div class="amentities-item">
+                    <p><input type="checkbox">&nbsp;&nbsp;Beachfront</p>
+                  </div>
+                  <div class="amentities-item">
+                    <p><input type="checkbox">&nbsp;&nbsp;Waterfront</p>
+                  </div>
+                </div>
+                <p><b>Safety</b></p>
+                <div class="amentities">
+                  <div class="amentities-item">
+                    <p><input type="checkbox">&nbsp;&nbsp;Smoke allowed</p>
+                  </div>
+                  <div class="amentities-item">
+                    <p><input type="checkbox">&nbsp;&nbsp;Carbon mono-oxide</p>
+                  </div>
+                </div>
+                <hr>
+                <h5><strong>Host language</strong></h5>
+                <div class="amentities">
+                  <div class="amentities-item">
+                    <p><input type="checkbox">&nbsp;&nbsp;English</p>
+                    <p><input type="checkbox">&nbsp;&nbsp;German</p>
+                  </div>
+                  <div class="amentities-item">
+                    <p><input type="checkbox">&nbsp;&nbsp;French</p>
+                    <p><input type="checkbox">&nbsp;&nbsp;Japanese</p>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Show Listings</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="tax-toggle">
+        <div class="form-check-reverse form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+            style="cursor: pointer;">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="responsive" style="margin-top: 20px;">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault2">
+      <label class="form-check-label" for="flexSwitchCheckDefault2">Display total after taxes</label>
+    </div>
+  </div>
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card col listing-card">
+          <div id="container">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem" />
+          </div>
+
+          <!-- heart -  &#9829; -->
+          <div class="card-img-overlay"><i class="ri-heart-fill"></i></div>
+          <div class="card-body">
+            <p class="card-text">
+
+              <strong>
+                <%= listing.title %>
+              </strong><br><span style="color: grey;"><i class="fa-solid fa-location-dot">&nbsp;</i>
+                <%= listing.country %>
+              </span>
+            <div class="price" style="margin-top: -12px;">&#8377; <%= listing.price.toLocaleString("en-IN") %> night<br>
+            </div>
+            <span class="tax-info" style="text-decoration: underline;">&#8377; <%=
+                (listing.price*1.18).toLocaleString("en-IN") %> &nbsp; Includes 18% GST </span>
+            <i class="tax-info2" style="text-decoration: underline;">&#8377; <%=
+                (listing.price*1.8).toLocaleString("en-IN") %> &nbsp; Includes 18% GST </i>
+
+            </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+  </div>
+
+  <script src="/js/script.js"></script>
+
+  <script>
+    let price = document.getElementsByClassName("price");
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for (info of taxInfo) {
+        if (info.style.display != "inline") {
+          info.style.display = "inline";
+          info.style.fontWeight = "bold";
+          info.style.color = "crimson";
+        } else {
+          info.style.display = "none";
+        }
+      }
+    });
+  </script>
+
+  <script>
+    let taxSwitch2 = document.getElementById("flexSwitchCheckDefault2");
+    taxSwitch2.addEventListener("click", () => {
+      let taxInfo2 = document.getElementsByClassName("tax-info2");
+      for (info of taxInfo2) {
+        if (info.style.display != "inline") {
+          info.style.display = "inline";
+          info.style.fontWeight = "bold";
+        } else {
+          info.style.display = "none";
+        }
+      }
+    });
+  </script>
+
+  <script>
+    const bars = document.querySelectorAll(".bar");
+
+    // Set the heights for each bar representing the price range
+    const prices = [
+      10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10,
+      5,
+    ];
+    // Adjust prices as needed
+    bars.forEach((bar, index) => {
+      bar.style.height = prices[index] + "px";
+    });
+  </script>

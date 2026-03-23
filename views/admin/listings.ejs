@@ -1,0 +1,56 @@
+<% layout("/layouts/admin") %>
+<% const active = 'listings' %>
+
+<div class="row align-items-center mb-4">
+    <div class="col">
+        <h1 class="h3 mb-0 text-gray-800">Listings Management</h1>
+        <p class="text-muted small">Approve, Edit, and Manage all property listings across the platform.</p>
+    </div>
+</div>
+
+<div class="admin-table-container">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let listing of listings) { %>
+                    <tr>
+                        <td>
+                            <img src="<%= listing.image.url %>" alt="listing" class="rounded shadow-sm" style="width: 60px; height: 40px; object-fit: cover;">
+                        </td>
+                        <td>
+                           <div class="fw-bold"><%= listing.title %></div>
+                           <div class="text-muted small"><%= listing.location %>, <%= listing.country %></div>
+                        </td>
+                        <td><%= listing.owner ? listing.owner.username : 'N/A' %></td>
+                        <td>₹<%= listing.price.toLocaleString("en-IN") %></td>
+                        <td>
+                            <form action="/admin/listings/<%= listing._id %>/approve?_method=PATCH" method="POST">
+                                <button type="submit" class="btn btn-sm <%= listing.isApproved ? 'btn-success' : 'btn-warning' %>">
+                                    <%= listing.isApproved ? 'Approved' : 'Pending' %>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="/listings/<%= listing._id %>/edit" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <form action="/admin/listings/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete this listing?')">
+                                    <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
