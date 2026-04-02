@@ -48,15 +48,8 @@ body.loaded {
 .navbar {
   position: fixed;
   height: 4.5rem;
-  background-image: linear-gradient(
-    to right,
-    #ff8177 0%,
-    #ff867a 0%,
-    #ff8c7f 21%,
-    #f99185 52%,
-    #cf556c 78%,
-    #b12a5b 100%
-  );
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
   z-index: 100 !important;
 }
 
@@ -82,7 +75,7 @@ body.loaded {
 }
 
 .navbar-brand b {
-  color: white !important;
+  color: #111111 !important;
   font-size: 1.5rem;
 }
 
@@ -716,31 +709,15 @@ nav {
 /* -------------------- Footer ------------------ */
 
 footer {
-  /* background-color: #ebebee; */
-  background-image: linear-gradient(
-    to right,
-    #ff8177 0%,
-    #ff867a 0%,
-    #ff8c7f 21%,
-    #f99185 52%,
-    #cf556c 78%,
-    #b12a5b 100%
-  );
-  color: white;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  color: #111111;
   font-weight: bold;
   z-index: 1000;
 }
 
 .f-info {
-  background-image: linear-gradient(
-    to right,
-    #ff8177 0%,
-    #ff867a 0%,
-    #ff8c7f 21%,
-    #f99185 52%,
-    #cf556c 78%,
-    #b12a5b 100%
-  );
+  background-color: #ffffff;
 }
 
 .footer {
@@ -771,7 +748,7 @@ footer {
 
 .footer-item a {
   text-decoration: none;
-  color: white;
+  color: #111111;
   font-weight: 500;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
