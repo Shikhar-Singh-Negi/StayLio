@@ -820,6 +820,7 @@ footer {
 /* ------------------------ Responsive -------------- */
 
 @media (max-width: 768px) {
+
   HTML,
   body {
     width: 100%;
@@ -834,22 +835,11 @@ footer {
 
   .container-fluid {
     /* background-color: #ebebee; */
-    background-image: linear-gradient(
-      to right,
-      #ff8177 0%,
-      #ff867a 0%,
-      #ff8c7f 21%,
-      #f99185 52%,
-      #cf556c 78%,
-      #b12a5b 100%
-    );
-    color: white;
     text-align: center;
   }
 
   .navbar {
     position: fixed !important;
-    color: white !important;
     width: 100%;
     flex-grow: 1;
   }
@@ -1060,14 +1050,14 @@ footer {
     text-align: center;
   }
 
-  #hosted > div {
+  #hosted>div {
     margin-left: -26px;
     padding: 0 30px !important;
   }
 
   /* -- Accordion -- */
 
-  .accordion > div {
+  .accordion>div {
     width: 100%;
   }
 }
@@ -1075,7 +1065,6 @@ footer {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .navbar {
     position: fixed !important;
-    color: white !important;
     width: 100%;
     flex-grow: 1;
   }
@@ -1094,8 +1083,8 @@ footer {
     margin: auto !important;
   }
 
-  #log{
-    display:none;
+  #log {
+    display: none;
   }
 
 }
