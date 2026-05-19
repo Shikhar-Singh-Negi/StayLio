@@ -19,7 +19,7 @@ Staylio is a full-stack web application that enables users to browse, list, and 
 ## 🖥️ Tech Stack
 
 ### Frontend
-- React.js
+- EJS
 - HTML5, CSS3, JavaScript (ES6+)
 
 ### Backend
